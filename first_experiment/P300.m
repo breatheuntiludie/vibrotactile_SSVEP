@@ -1,7 +1,7 @@
 % Programm for extraction P300
-Data = textread('research.asc'); %GremIS_9.10.20
+%Data = textread('research.asc'); %GremIS_9.10.20
 %Data = textread('research_2.asc'); %Kuleshov_9.10.20
-Signals = textread('only_num_signals.txt');
+%Signals = textread('only_num_signals.txt');
 close all;
 t_sec = 60;
 freq_discr = 500; % sampling frequency, Hz
@@ -10,7 +10,7 @@ Ip = 0;
 Length_epoch = 0;
 % our experiment series
 Nexp = 9; % 9 experiments
-ch = 9; % Stim(1), Fpz(2), Fz(3), C3(4), C4(5), Cz(6), P3(7), P4(8), Pz(9)
+ch = 6; % Stim(1), Fpz(2), Fz(3), C3(4), C4(5), Cz(6), P3(7), P4(8), Pz(9)
 
 %Nexp = input('Number of experiment(1-9):'); %command-line in Matlab2019
 %ch = input('Number of chanel:'); %command-line in Matlab2019
@@ -80,7 +80,7 @@ end;
 SSep = zeros(Length_epoch, 9); % matrix for summing signals
 SSep1 = zeros(Length_epoch, 9); % matrix for animation and norminetting
 Norminette = zeros(9, 1); % norma
-for j = 1:N - 1
+for j = 1:N
     Is = 10 + offset; % first 10 stimuls for testing
     Is = Is + j;
     if Signals(Is,1) == 8
